@@ -1,0 +1,22 @@
+[Unit]
+Description=Zeone's distributed currency daemon
+After=network.target
+
+[Service]
+User=zeonecore
+Group=zeonecore
+
+Type=forking
+PIDFile=/var/lib/zeoned/zeoned.pid
+ExecStart=/usr/bin/zeoned -daemon -pid=/var/lib/zeoned/zeoned.pid \
+-conf=/etc/zeonecore/zeone.conf -datadir=/var/lib/zeoned -disablewallet
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target

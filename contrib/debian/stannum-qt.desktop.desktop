@@ -1,0 +1,11 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Zeone
+Comment=Zeone P2P Cryptocurrency
+Exec=zeone-qt %u
+Terminal=false
+Type=Application
+Icon=zeone128
+MimeType=x-scheme-handler/zeone;
+Categories=Office;Finance;
+Name[en_US]=zeone-qt.desktop

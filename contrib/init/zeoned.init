@@ -1,0 +1,67 @@
+#!/bin/bash
+#
+#  zeoned The Zeone Core server.
+#
+#
+# chkconfig: 345 80 20
+# description: zeoned
+# processname: zeoned
+#
+
+# Source function library.
+. /etc/init.d/functions
+
+# you can override defaults in /etc/sysconfig/zeoned, see below
+if [ -f /etc/sysconfig/zeoned ]; then
+        . /etc/sysconfig/zeoned
+fi
+
+RETVAL=0
+
+prog=zeoned
+# you can override the lockfile via BITCOIND_LOCKFILE in /etc/sysconfig/zeoned
+lockfile=${BITCOIND_LOCKFILE-/var/lock/subsys/zeoned}
+
+# zeoned defaults to /usr/bin/zeoned, override with BITCOIND_BIN
+zeoned=${BITCOIND_BIN-/usr/bin/zeoned}
+
+# zeoned opts default to -disablewallet, override with BITCOIND_OPTS
+zeoned_opts=${BITCOIND_OPTS--disablewallet}
+
+start() {
+    echo -n $"Starting $prog: "
+    daemon $DAEMONOPTS $zeoned $zeoned_opts
+    RETVAL=$?
+    echo
+    [ $RETVAL -eq 0 ] && touch $lockfile
+    return $RETVAL
+}
+
+stop() {
+    echo -n $"Stopping $prog: "
+    killproc $prog
+    RETVAL=$?
+    echo
+    [ $RETVAL -eq 0 ] && rm -f $lockfile
+    return $RETVAL
+}
+
+case "$1" in
+    start)
+        start
+        ;;
+    stop)
+        stop
+        ;;
+    status)
+        status $prog
+        ;;
+    restart)
+        stop
+        start
+        ;;
+    *)
+        echo "Usage: service $prog {start|stop|status|restart}"
+        exit 1
+        ;;
+esac

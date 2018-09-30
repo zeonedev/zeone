@@ -1,0 +1,20 @@
+<!DOCTYPE RCC><RCC version="1.0">
+    <qresource prefix="/translations">
+        <file alias="bg">locale/zeone_bg.qm</file>
+        <file alias="de">locale/zeone_de.qm</file>
+        <file alias="en">locale/zeone_en.qm</file>
+        <file alias="es">locale/zeone_es.qm</file>
+        <file alias="fi">locale/zeone_fi.qm</file>
+        <file alias="fr">locale/zeone_fr.qm</file>
+        <file alias="it">locale/zeone_it.qm</file>
+        <file alias="ja">locale/zeone_ja.qm</file>
+        <file alias="pl">locale/zeone_pl.qm</file>
+        <file alias="pt">locale/zeone_pt.qm</file>
+        <file alias="ru">locale/zeone_ru.qm</file>
+        <file alias="sk">locale/zeone_sk.qm</file>
+        <file alias="sv">locale/zeone_sv.qm</file>
+        <file alias="vi">locale/zeone_vi.qm</file>
+        <file alias="zh_CN">locale/zeone_zh_CN.qm</file>
+        <file alias="zh_TW">locale/zeone_zh_TW.qm</file>
+    </qresource>
+</RCC>
